@@ -1,0 +1,1249 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweet Birthday Studio 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&family=Pacifico&family=Caveat:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Comfortaa:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Lobster&family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+
+<style>
+/* ===== SOFT PASTEL UI ===== */
+:root {
+  --ui-pink: #ee4d9b;
+  --ui-purple: #8867df;
+  --ui-text: #514568;
+  --ui-muted: #9b91ad;
+  --ui-border: #eee5f6;
+  --ui-radius: 16px;
+  --ui-shadow: 0 8px 28px rgba(91, 62, 125, .07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--ui-text);
+  background: #f7f3fc;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 13px;
+  padding: 10px 13px;
+  background: var(--ui-purple);
+  color: white;
+  font-weight: 800;
+  font-size: 12px;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+button:hover {
+  filter: brightness(1.035);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 17px rgba(112, 78, 157, .13);
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+button.secondary {
+  background: #f2ebfb;
+  color: #654f89;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+  transform: none;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  min-height: 100vh;
+  background: #f7f3fc;
+}
+
+/* Sidebar gọn gàng */
+.sidebar {
+  min-width: 0;
+  background: rgba(255,255,255,.98);
+  padding: 19px 15px 25px;
+  max-height: 100vh;
+  overflow-y: auto;
+  border: 0;
+  border-right: 1px solid #eee7f5;
+  box-shadow: 4px 0 24px rgba(80,57,111,.035);
+  scrollbar-width: thin;
+  scrollbar-color: #e2d4f1 transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #e5d8f1;
+  border-radius: 20px;
+}
+
+.sidebar h1 {
+  font-size: 18px;
+  line-height: 1.45;
+  margin: 0 0 19px;
+  padding: 3px 2px 16px;
+  border-bottom: 1px solid #f0e8f7;
+  color: #493766;
+  font-weight: 800;
+  letter-spacing: -.35px;
+}
+
+.sidebar h2 {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #9b83b7;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin: 22px 0 11px;
+  font-weight: 800;
+}
+
+label {
+  display: block;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 11px 0 6px;
+  color: #796a90;
+  font-weight: 650;
+}
+
+input[type=text],
+input[type=number],
+select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 39px;
+  padding: 9px 11px;
+  border: 1px solid #e8dff1;
+  border-radius: 12px;
+  background: #fff;
+  color: #514568;
+  outline: none;
+  font-size: 12px;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+input[type=text]:hover,
+input[type=number]:hover,
+select:hover {
+  border-color: #d9c5ef;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+select:focus {
+  border-color: #bd9be9;
+  background: #fffafd;
+  box-shadow: 0 0 0 3px rgba(173,130,225,.13);
+}
+
+input[type=range] {
+  width: 100%;
+  margin: 8px 0;
+  accent-color: #a17add;
+  cursor: pointer;
+}
+
+input[type=color] {
+  width: 100%;
+  max-width: 100%;
+  height: 37px;
+  padding: 3px;
+  border: 1px solid #eee4f5;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+.hint {
+  font-size: 11px;
+  color: #9b8caf;
+  line-height: 1.65;
+  margin: 7px 0;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 64px;
+  padding: 12px;
+  background: #fbf7ff;
+  border: 1px dashed #cdb4ed;
+  border-radius: 14px;
+  text-align: center;
+  color: #8867c9;
+  cursor: pointer;
+  font-weight: 800;
+  transition: background .2s, border-color .2s;
+}
+
+.upload:hover {
+  background: #f6edff;
+  border-color: #a98ad8;
+}
+
+.upload input {
+  display: none;
+}
+
+.btnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.btnrow > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.colors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.colors > div {
+  min-width: 0;
+}
+
+.colors label {
+  font-size: 10px;
+  line-height: 1.35;
+  min-height: 27px;
+  margin-top: 5px;
+}
+
+.checks label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 8px 0;
+  padding: 9px 10px;
+  background: #fff;
+  border: 1px solid #f0e8f7;
+  border-radius: 11px;
+  font-size: 11px;
+}
+
+input[type=checkbox] {
+  accent-color: #a17add;
+  cursor: pointer;
+}
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.asset-grid button {
+  min-width: 0;
+  font-size: 23px;
+  background: #fbf7ff;
+  padding: 8px 3px;
+  border: 1px solid #eee3fa;
+  border-radius: 12px;
+}
+
+#status {
+  font-size: 11px;
+  color: #7658bd;
+  margin-top: 10px;
+  line-height: 1.6;
+  min-height: 16px;
+}
+
+/* Khu vực xem trước */
+.main {
+  min-width: 0;
+  padding: 22px 19px;
+  background: #f7f3fc;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-bottom: 17px;
+}
+
+.toolbar h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #51416b;
+  letter-spacing: -.4px;
+}
+
+.toolbar p {
+  font-size: 12px;
+  color: #9b8caf;
+  margin: 5px 0 0;
+  line-height: 1.6;
+}
+
+.toolbar .btnrow {
+  margin-top: 0;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.toolbar button {
+  min-height: 43px;
+  padding: 11px 15px;
+  border-radius: 13px;
+  white-space: normal;
+}
+
+#export {
+  background: linear-gradient(135deg, #9774e8, #8060d8);
+  box-shadow: 0 5px 13px rgba(112,78,157,.12);
+}
+
+#exportGif {
+  background: linear-gradient(135deg, #f35ca5, #e94391);
+  box-shadow: 0 5px 13px rgba(238,77,155,.13);
+}
+
+.preview {
+  min-height: calc(100vh - 110px);
+  display: grid;
+  place-items: center;
+  padding: 15px;
+  background: #eee8f5;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 25px;
+  box-shadow: var(--ui-shadow);
+}
+
+#stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1400px;
+  aspect-ratio: 16 / 9;
+  min-height: 380px;
+  border-radius: 17px;
+  color: #583c72;
+  background: linear-gradient(135deg,#ffe6f1,#e4e7ff);
+  box-shadow: 0 10px 32px rgba(77,52,99,.08);
+}
+
+#bgPhoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  z-index: -2;
+}
+
+#shade {
+  position: absolute;
+  inset: 0;
+  background: #ffe6f1;
+  opacity: .25;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#confetti { z-index: 1; }
+#bunting { z-index: 2; }
+#balloons { z-index: 3; }
+#decorLayer { z-index: 5; pointer-events: none; }
+
+#content {
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 140px 20px 20px;
+  gap: 5px;
+  pointer-events: none;
+}
+
+#tTitle {
+  font-size: 70px;
+  line-height: 1.15;
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-shadow: 0 3px 0 #0001;
+}
+
+#tName {
+  font-size: 40px;
+  font-weight: 800;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+#tAge {
+  font-size: 22px;
+  margin: 0;
+}
+
+#tMsg {
+  font-size: 18px;
+  max-width: 85%;
+  margin: 8px 0 0;
+  overflow-wrap: anywhere;
+}
+
+#cake {
+  width: 210px;
+  max-width: 38%;
+  margin-top: 8px;
+}
+
+.balloon {
+  position: absolute;
+  border-radius: 50% 50% 48% 48% / 58% 58% 42% 42%;
+  box-shadow: inset -8px -10px 18px #0002;
+  pointer-events: none;
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: 20%;
+  width: 22%;
+  height: 16%;
+  border-radius: 50%;
+  background: #ffffff99;
+  transform: rotate(-30deg);
+}
+
+.balloon:after {
+  content: "";
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  height: 75px;
+  border-left: 1px solid #5558;
+}
+
+.confetti {
+  position: absolute;
+  top: -20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(115vh) rotate(720deg); }
+}
+
+@keyframes float {
+  to { transform: translateY(-15px) rotate(4deg); }
+}
+
+.sticker {
+  position: absolute;
+  pointer-events: auto;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  display: grid;
+  place-items: center;
+}
+
+.sticker.selected {
+  outline: 2px dashed #8466d9;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.sticker img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#stage.still * {
+  animation: none !important;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 270px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    padding: 17px 12px 22px;
+  }
+
+  .main {
+    padding: 16px 13px;
+  }
+
+  .preview {
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .toolbar button {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .app {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .preview {
+    min-height: 65vh;
+    padding: 8px;
+  }
+
+  #stage {
+    min-height: 360px;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid #eee7f5;
+    border-radius: 0 0 22px 22px;
+    padding: 18px 15px;
+  }
+
+  .sidebar h1 {
+    font-size: 18px;
+  }
+
+  .main {
+    padding: 15px 10px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar .btnrow {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .toolbar button {
+    flex: 1;
+    padding: 10px 8px;
+  }
+
+  .preview {
+    min-height: 0;
+    padding: 7px;
+    border-radius: 17px;
+  }
+
+  #stage {
+    min-height: 390px;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+  }
+
+  #content {
+    padding-top: 27%;
+  }
+
+  #tTitle {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  #tName {
+    font-size: 28px;
+  }
+
+  #tAge {
+    font-size: 17px;
+  }
+
+  #tMsg {
+    font-size: 14px;
+  }
+
+  #cake {
+    width: 145px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button, input, select {
+    transition: none;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+<aside class="sidebar">
+<h1>🎀 Sweet Birthday Studio</h1>
+
+<h2>🌍 Ngôn ngữ</h2>
+<label for="language">Ngôn ngữ thiệp</label>
+<select id="language">
+<option value="vi">🇻🇳 Tiếng Việt</option>
+<option value="en" selected>🇺🇸 English</option>
+<option value="ja">🇯🇵 日本語</option>
+<option value="ko">🇰🇷 한국어</option>
+<option value="zh-CN">🇨🇳 简体中文</option>
+<option value="zh-TW">🇹🇼 繁體中文</option>
+<option value="th">🇹🇭 ภาษาไทย</option>
+<option value="hi">🇮🇳 हिन्दी</option>
+<option value="ar">🇸🇦 العربية</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="es">🇪🇸 Español</option>
+<option value="ru">🇷🇺 Русский</option>
+</select>
+<p class="hint">Chọn ngôn ngữ để áp dụng lời chúc mẫu và font phù hợp. Bạn vẫn có thể sửa nội dung sau đó.</p>
+
+<h2>📝 Nội dung</h2>
+<label for="title">Tiêu đề</label><input id="title" value="Happy Birthday">
+<label for="name">Tên người nhận</label><input id="name" value="Linh">
+<label for="age">Tuổi (0 để ẩn)</label><input id="age" type="number" min="0" max="120" value="20">
+<label for="msg">Lời chúc</label><input id="msg" value="Wishing you a day full of joy! 💗">
+<label for="banner">Chữ trên dây cờ</label><input id="banner" value="HAPPY BIRTHDAY" maxlength="24">
+
+<h2>🎀 Font chữ cute</h2>
+<label for="font">Chọn phong cách chữ</label>
+<select id="font">
+<optgroup label="Cute & Kawaii">
+<option value="Fredoka">Fredoka — Bubble cute</option>
+<option value="Baloo 2">Baloo 2 — Tròn đáng yêu</option>
+<option value="Comfortaa">Comfortaa — Mềm mại</option>
+<option value="Nunito">Nunito — Ngọt ngào</option>
+<option value="Quicksand">Quicksand — Minimal cute</option>
+</optgroup>
+<optgroup label="Handwritten & Coquette">
+<option value="Pacifico">Pacifico — Viết tay</option>
+<option value="Caveat">Caveat — Handwritten</option>
+<option value="Dancing Script">Dancing Script — Nàng thơ</option>
+<option value="Great Vibes">Great Vibes — Công chúa</option>
+<option value="Lobster">Lobster — Vintage</option>
+</optgroup>
+<optgroup label="Elegant & đa ngôn ngữ">
+<option value="Playfair Display">Playfair Display — Thanh lịch</option>
+<option value="Noto Sans">Noto Sans — Đa ngôn ngữ</option>
+<option value="Noto Sans JP">Noto Sans JP — Nhật</option>
+<option value="Noto Sans KR">Noto Sans KR — Hàn</option>
+<option value="Noto Sans SC">Noto Sans SC — Trung giản thể</option>
+<option value="Noto Sans TC">Noto Sans TC — Trung phồn thể</option>
+<option value="Noto Sans Arabic">Noto Sans Arabic — Ả Rập</option>
+<option value="Noto Sans Thai">Noto Sans Thai — Thái</option>
+<option value="Noto Sans Devanagari">Noto Sans Devanagari — Hindi</option>
+</optgroup>
+</select>
+<label for="tSize">Kích thước tiêu đề</label>
+<input id="tSize" type="range" min="25" max="100" value="70">
+
+<h2>🖼️ Ảnh nền cá nhân</h2>
+<label class="upload">＋ Chọn ảnh từ máy tính
+<div class="hint">PNG, JPG, WEBP · tối đa 10 MB</div>
+<input id="bgUpload" type="file" accept="image/*">
+</label>
+<div class="btnrow"><button class="secondary" id="removeBg">Bỏ ảnh nền</button></div>
+<label for="bgOpacity">Độ đậm lớp phủ</label>
+<input id="bgOpacity" type="range" min="0" max="90" value="25">
+<label for="overlayColor">Màu lớp phủ</label>
+<input id="overlayColor" type="color" value="#ffe6f1">
+
+<h2>🎨 Màu sắc</h2>
+<div class="colors">
+<div><label>Nền trên</label><input type="color" id="bg1" value="#ffe6f1"></div>
+<div><label>Nền dưới</label><input type="color" id="bg2" value="#e4e7ff"></div>
+<div><label>Màu chữ</label><input type="color" id="ink" value="#583c72"></div>
+<div><label>Hồng</label><input type="color" id="c1" value="#ff80ab"></div>
+<div><label>Vàng</label><input type="color" id="c2" value="#ffd166"></div>
+<div><label>Xanh dương</label><input type="color" id="c3" value="#83d8f8"></div>
+<div><label>Xanh lá</label><input type="color" id="c4" value="#a8e6a3"></div>
+</div>
+
+<h2>🎈 Trang trí</h2>
+<label>Số bóng bay: <span id="vBal">10</span></label>
+<input id="nBal" type="range" min="0" max="24" value="10">
+<label>Kích thước bóng bay</label>
+<input id="sBal" type="range" min="60" max="160" value="100">
+<label>Confetti: <span id="vCon">50</span></label>
+<input id="nCon" type="range" min="0" max="120" value="50">
+<div class="checks">
+<label><input type="checkbox" id="onBun" checked> Dây cờ</label>
+<label><input type="checkbox" id="onCake" checked> Bánh kem</label>
+<label><input type="checkbox" id="onAnim" checked> Animation</label>
+</div>
+
+<h2>✨ Sticker</h2>
+<div class="asset-grid" id="assetGrid">
+<button data-emoji="💖">💖</button><button data-emoji="⭐">⭐</button>
+<button data-emoji="🎁">🎁</button><button data-emoji="🌸">🌸</button>
+<button data-emoji="🎉">🎉</button><button data-emoji="🦋">🦋</button>
+<button data-emoji="🍓">🍓</button><button data-emoji="✨">✨</button>
+<button data-emoji="🎀">🎀</button><button data-emoji="🧸">🧸</button>
+<button data-emoji="💕">💕</button><button data-emoji="🌷">🌷</button>
+</div>
+<label class="upload" style="margin-top:10px">＋ Tải sticker riêng
+<div class="hint">Khuyên dùng PNG nền trong suốt</div>
+<input id="decorUpload" type="file" accept="image/*">
+</label>
+<div class="btnrow">
+<button class="secondary" id="deleteSticker">Xóa sticker chọn</button>
+<button class="secondary" id="clearStickers">Xóa tất cả</button>
+</div>
+
+<h2>🎨 Mẫu có sẵn</h2>
+<div class="btnrow">
+<button class="secondary preset" data-preset="pastel">Pastel</button>
+<button class="secondary preset" data-preset="sunset">Sunset</button>
+<button class="secondary preset" data-preset="night">Night</button>
+</div>
+
+<h2>💾 Lưu thiết kế</h2>
+<div class="btnrow">
+<button id="save">Lưu</button>
+<button class="secondary" id="load">Mở bản lưu</button>
+</div>
+<div class="btnrow">
+<button id="shuffle">Xáo trộn</button>
+<button class="secondary" id="reset">Đặt lại</button>
+</div>
+<div id="status"></div>
+</aside>
+
+<main class="main">
+<div class="toolbar">
+<div>
+<h2>💌 Bản xem trước</h2>
+<p>Tạo một chiếc thiệp thật xinh theo phong cách của bạn.</p>
+</div>
+<div class="btnrow">
+<button class="secondary" id="fullscreen">Toàn màn hình</button>
+<button id="export">Tải thiệp PNG</button>
+<button id="exportGif">🎞️ Save as GIF</button>
+</div>
+</div>
+
+<div class="preview">
+<div id="stage" lang="en" dir="ltr">
+<img id="bgPhoto" alt="Ảnh nền thiệp">
+<div id="shade"></div>
+<div class="layer" id="confetti"></div>
+<div class="layer" id="bunting"></div>
+<div class="layer" id="balloons"></div>
+<div class="layer" id="decorLayer"></div>
+<div id="content">
+<h1 id="tTitle">Happy Birthday</h1>
+<p id="tName">Linh</p>
+<p id="tAge">Celebrating 20 today!</p>
+<p id="tMsg">Wishing you a day full of joy! 💗</p>
+<div id="cake"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+(() => {
+const $ = id => document.getElementById(id);
+
+const birthdayLanguages = {
+vi:{title:"Chúc Mừng Sinh Nhật",message:"Chúc bạn luôn xinh đẹp và hạnh phúc! 💗",banner:"CHÚC MỪNG SINH NHẬT",age:n=>`Chúc mừng sinh nhật tuổi ${n}!`},
+en:{title:"Happy Birthday",message:"Wishing you a day full of joy! 💗",banner:"HAPPY BIRTHDAY",age:n=>`Celebrating ${n} today!`},
+ja:{title:"お誕生日おめでとう",message:"素敵な一年になりますように！ 💗",banner:"お誕生日おめでとう",age:n=>`${n}歳のお誕生日おめでとう！`},
+ko:{title:"생일 축하해요",message:"행복하고 사랑스러운 하루 보내세요! 💗",banner:"생일 축하해요",age:n=>`${n}번째 생일을 축하해요!`},
+"zh-CN":{title:"生日快乐",message:"愿你每天开心，永远幸福！ 💗",banner:"生日快乐",age:n=>`祝你${n}岁生日快乐！`},
+"zh-TW":{title:"生日快樂",message:"願你每天開心，永遠幸福！ 💗",banner:"生日快樂",age:n=>`祝你${n}歲生日快樂！`},
+th:{title:"สุขสันต์วันเกิด",message:"ขอให้มีความสุขและสดใสทุกวัน! 💗",banner:"สุขสันต์วันเกิด",age:n=>`สุขสันต์วันเกิดอายุ ${n} ปี!`},
+hi:{title:"जन्मदिन मुबारक",message:"आपका हर दिन खुशियों से भरा हो! 💗",banner:"जन्मदिन मुबारक",age:n=>`${n}वें जन्मदिन की शुभकामनाएँ!`},
+ar:{title:"عيد ميلاد سعيد",message:"أتمنى لك يوماً مليئاً بالسعادة! 💗",banner:"عيد ميلاد سعيد",age:n=>`عيد ميلاد سعيد ${n}!`},
+fr:{title:"Joyeux Anniversaire",message:"Je te souhaite une journée pleine de joie ! 💗",banner:"JOYEUX ANNIVERSAIRE",age:n=>`Tu fêtes tes ${n} ans !`},
+es:{title:"Feliz Cumpleaños",message:"¡Que tu día esté lleno de alegría! 💗",banner:"FELIZ CUMPLEANOS",age:n=>`¡Felices ${n} años!`},
+ru:{title:"С днём рождения",message:"Желаю тебе счастья и радости! 💗",banner:"С ДНЁМ РОЖДЕНИЯ",age:n=>`С ${n}-летием!`}
+};
+
+const suggestedFonts={
+vi:"Fredoka",en:"Fredoka",ja:"Noto Sans JP",ko:"Noto Sans KR",
+"zh-CN":"Noto Sans SC","zh-TW":"Noto Sans TC",th:"Noto Sans Thai",
+hi:"Noto Sans Devanagari",ar:"Noto Sans Arabic",fr:"Quicksand",
+es:"Baloo 2",ru:"Nunito"
+};
+
+const fallbacks={
+vi:'"Noto Sans",sans-serif',en:'"Noto Sans",sans-serif',ja:'"Noto Sans JP",sans-serif',ko:'"Noto Sans KR",sans-serif',
+"zh-CN":'"Noto Sans SC",sans-serif',"zh-TW":'"Noto Sans TC",sans-serif',th:'"Noto Sans Thai",sans-serif',hi:'"Noto Sans Devanagari",sans-serif',ar:'"Noto Sans Arabic",sans-serif',fr:'"Noto Sans",sans-serif',es:'"Noto Sans",sans-serif',ru:'"Noto Sans",sans-serif'
+};
+
+let seed=7,backgroundData=null,stickers=[],selected=null,stickerId=0;
+
+function palette(){return [$('c1').value,$('c2').value,$('c3').value,$('c4').value]}
+function rng(seedValue){return function(){let t=seedValue+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return ((t^t>>>14)>>>0)/4294967296}}
+function safeText(v){return String(v).replace(/[<>&"]/g,"")}
+
+function makeCake(c){
+return `<svg viewBox="0 0 240 210" width="100%" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="120" cy="198" rx="112" ry="9" fill="#0002"/>
+<rect x="20" y="130" width="200" height="66" rx="12" fill="${c[1]}"/>
+<rect x="20" y="130" width="200" height="16" rx="8" fill="${c[0]}"/>
+<rect x="48" y="82" width="144" height="54" rx="12" fill="${c[3]}"/>
+<rect x="48" y="82" width="144" height="14" rx="7" fill="${c[0]}"/>
+<circle cx="52" cy="170" r="5" fill="${c[0]}"/><circle cx="92" cy="176" r="5" fill="${c[2]}"/>
+<circle cx="132" cy="170" r="5" fill="${c[0]}"/><circle cx="172" cy="176" r="5" fill="${c[2]}"/>
+<rect x="116" y="52" width="8" height="30" rx="2" fill="${c[2]}"/>
+<ellipse cx="120" cy="44" rx="5" ry="9" fill="#ffb703" class="flame"/>
+</svg>`;
+}
+
+function makeBanner(text,c){
+const chars=safeText(text).replace(/\s+/g,"").slice(0,24).split("");
+if(!chars.length)return "";
+let svg=`<svg viewBox="0 0 1000 200" width="100%" xmlns="http://www.w3.org/2000/svg"><path d="M0 8 Q500 120 1000 8" fill="none" stroke="#555" stroke-width="3"/>`;
+chars.forEach((ch,i)=>{
+const t=(i+1)/(chars.length+1),x=1000*t,y=(1-t)*(1-t)*8+2*(1-t)*t*64+t*t*8,w=Math.min(1000/(chars.length+1)*.92,84),h=w*1.15;
+svg+=`<polygon points="${x-w/2},${y} ${x+w/2},${y} ${x},${y+h}" fill="${c[i%c.length]}" stroke="#0002"/><text x="${x}" y="${y+h*.5}" text-anchor="middle" dominant-baseline="middle" font-size="${w*.5}" font-weight="800" fill="white">${ch}</text>`;
+});
+return svg+"</svg>";
+}
+
+function render(){
+const lang=$('language').value,c=palette(),stage=$('stage');
+const age=Math.max(0,Math.min(120,Number($('age').value)||0));
+stage.lang=lang;
+stage.dir=lang==="ar"?"rtl":"ltr";
+stage.style.fontFamily=`"${$('font').value}", ${fallbacks[lang]}`;
+stage.style.background=`linear-gradient(160deg,${$('bg1').value},${$('bg2').value})`;
+stage.style.color=$('ink').value;
+stage.classList.toggle('still',!$('onAnim').checked);
+
+$('tTitle').textContent=$('title').value;
+$('tTitle').style.fontSize=$('tSize').value+'px';
+$('tName').textContent=$('name').value;
+$('tAge').textContent=age?birthdayLanguages[lang].age(age):'';
+$('tMsg').textContent=$('msg').value;
+$('shade').style.background=$('overlayColor').value;
+$('shade').style.opacity=Number($('bgOpacity').value)/100;
+
+$('bunting').innerHTML=$('onBun').checked&&lang!=="ar"?makeBanner($('banner').value,c):'';
+$('cake').innerHTML=$('onCake').checked?makeCake(c):'';
+$('vBal').textContent=$('nBal').value;
+$('vCon').textContent=$('nCon').value;
+
+const rand=rng(seed);
+let html='';
+for(let i=0;i<Number($('nBal').value);i++){
+const left=i%2===0?1+rand()*22:76+rand()*20;
+const size=(50+rand()*28)*Number($('sBal').value)/100;
+html+=`<div class="balloon" style="left:${left}%;bottom:${14+rand()*42}%;width:${size}px;height:${size*1.25}px;background:${c[Math.floor(rand()*c.length)]};animation-delay:-${rand()*4}s"></div>`;
+}
+$('balloons').innerHTML=html;
+
+html='';
+for(let i=0;i<Number($('nCon').value);i++){
+const size=6+rand()*8,round=rand()>.5;
+html+=`<span class="confetti" style="left:${rand()*100}%;width:${size}px;height:${round?size:size*1.8}px;border-radius:${round?'50%':'2px'};background:${c[Math.floor(rand()*c.length)]};animation-duration:${4+rand()*6}s;animation-delay:-${rand()*10}s"></span>`;
+}
+$('confetti').innerHTML=html;
+}
+
+function status(t){$('status').textContent=t}
+
+function readImage(file,cb){
+if(!file)return;
+if(!file.type.startsWith('image/'))return status('Vui lòng chọn file hình ảnh.');
+if(file.size>10*1024*1024)return status('Ảnh cần nhỏ hơn 10 MB.');
+const r=new FileReader();
+r.onload=()=>cb(r.result);
+r.onerror=()=>status('Không đọc được ảnh.');
+r.readAsDataURL(file);
+}
+
+$('bgUpload').addEventListener('change',e=>readImage(e.target.files[0],data=>{
+backgroundData=data;
+$('bgPhoto').src=data;
+$('bgPhoto').style.display='block';
+status('Đã cập nhật ảnh nền.');
+}));
+
+$('removeBg').onclick=()=>{
+backgroundData=null;
+$('bgPhoto').removeAttribute('src');
+$('bgPhoto').style.display='none';
+$('bgUpload').value='';
+status('Đã bỏ ảnh nền.');
+};
+
+function addSticker(item){
+const id='sticker-'+(++stickerId),el=document.createElement('div');
+el.className='sticker';
+el.dataset.id=id;
+el.style.left='40%';
+el.style.top='35%';
+el.style.width=item.data?'100px':'64px';
+el.style.height=item.data?'100px':'64px';
+
+if(item.data){
+const img=document.createElement('img');
+img.src=item.data;
+img.alt='Sticker';
+el.appendChild(img);
+}else{
+el.textContent=item.emoji;
+el.style.fontSize='48px';
+}
+
+$('decorLayer').appendChild(el);
+const s={id,emoji:item.emoji||null,data:item.data||null,left:40,top:35,width:item.data?100:64,height:item.data?100:64};
+stickers.push(s);
+drag(el,s);
+selectSticker(el);
+}
+
+function selectSticker(el){
+document.querySelectorAll('.sticker').forEach(x=>x.classList.toggle('selected',x===el));
+selected=el?el.dataset.id:null;
+}
+
+function drag(el,s){
+let sx=0,sy=0,ox=0,oy=0,moving=false,rect;
+
+el.addEventListener('pointerdown',e=>{
+e.preventDefault();
+e.stopPropagation();
+selectSticker(el);
+rect=$('stage').getBoundingClientRect();
+sx=e.clientX;
+sy=e.clientY;
+ox=parseFloat(el.style.left)||0;
+oy=parseFloat(el.style.top)||0;
+moving=true;
+el.setPointerCapture(e.pointerId);
+});
+
+el.addEventListener('pointermove',e=>{
+if(!moving)return;
+s.left=Math.max(0,Math.min(94,ox+(e.clientX-sx)/rect.width*100));
+s.top=Math.max(0,Math.min(90,oy+(e.clientY-sy)/rect.height*100));
+el.style.left=s.left+'%';
+el.style.top=s.top+'%';
+});
+
+el.addEventListener('pointerup',()=>moving=false);
+el.addEventListener('pointercancel',()=>moving=false);
+}
+
+$('assetGrid').onclick=e=>{
+const b=e.target.closest('[data-emoji]');
+if(b)addSticker({emoji:b.dataset.emoji});
+};
+
+$('decorUpload').onchange=e=>readImage(e.target.files[0],data=>{
+addSticker({data});
+e.target.value='';
+status('Đã thêm sticker. Bạn có thể kéo để di chuyển.');
+});
+
+$('deleteSticker').onclick=()=>{
+if(!selected)return status('Hãy chọn sticker cần xóa.');
+document.querySelector(`[data-id="${selected}"]`)?.remove();
+stickers=stickers.filter(s=>s.id!==selected);
+selected=null;
+};
+
+$('clearStickers').onclick=()=>{
+stickers=[];
+selected=null;
+$('decorLayer').innerHTML='';
+};
+
+document.addEventListener('pointerdown',e=>{
+if(!e.target.closest('.sticker'))selectSticker(null);
+});
+
+document.querySelectorAll('.sidebar input,.sidebar select').forEach(el=>{
+el.addEventListener('input',render);
+});
+
+$('language').addEventListener('change',()=>{
+const lang=$('language').value,d=birthdayLanguages[lang];
+$('title').value=d.title;
+$('msg').value=d.message;
+$('banner').value=d.banner;
+$('font').value=suggestedFonts[lang]||'Fredoka';
+render();
+});
+
+$('shuffle').onclick=()=>{
+seed=Math.random()*1000000|0;
+render();
+};
+
+$('fullscreen').onclick=async()=>{
+try{
+if(document.fullscreenElement)await document.exitFullscreen();
+else await $('stage').requestFullscreen();
+}catch{
+status('Không thể bật toàn màn hình trên trình duyệt này.');
+}
+};
+
+$('export').onclick=async()=>{
+const b=$('export');
+b.disabled=true;
+b.textContent='Đang xuất...';
+try{
+await document.fonts.ready;
+const canvas=await html2canvas($('stage'),{scale:2,useCORS:true,backgroundColor:null,logging:false});
+const a=document.createElement('a');
+a.download='sweet-birthday-card.png';
+a.href=canvas.toDataURL('image/png');
+a.click();
+status('Đã tải thiệp PNG.');
+}catch(e){
+status('Xuất ảnh thất bại. Hãy kiểm tra kết nối và thử lại.');
+}finally{
+b.disabled=false;
+b.textContent='Tải thiệp PNG';
+}
+};
+
+/* Xuất GIF động */
+$('exportGif').onclick=async()=>{
+const btn=$('exportGif');
+if(typeof GIF==='undefined'){
+status('Không tải được thư viện GIF. Hãy kiểm tra kết nối Internet.');
+return;
+}
+
+btn.disabled=true;
+btn.textContent='Đang tạo GIF...';
+status('Đang chụp các khung hình. Vui lòng chờ...');
+
+let gif=null;
+try{
+await document.fonts.ready;
+
+const stage=$('stage');
+const frameCount=12;
+const delay=160;
+const frames=[];
+
+for(let i=0;i<frameCount;i++){
+const canvas=await html2canvas(stage,{
+scale:1,
+useCORS:true,
+backgroundColor:null,
+logging:false
+});
+frames.push(canvas);
+await new Promise(resolve=>setTimeout(resolve,delay));
+}
+
+gif=new GIF({
+workers:2,
+quality:10,
+width:frames[0].width,
+height:frames[0].height,
+workerScript:'https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js'
+});
+
+frames.forEach(canvas=>{
+gif.addFrame(canvas,{delay,copy:true});
+});
+
+status('Đang ghép GIF...');
+gif.on('progress',p=>{
+status('Đang tạo GIF: '+Math.round(p*100)+'%');
+});
+
+gif.on('finished',blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;
+a.download='sweet-birthday-card.gif';
+document.body.appendChild(a);
+a.click();
+a.remove();
+
+setTimeout(()=>URL.revokeObjectURL(url),10000);
+status('Đã xuất GIF. Nếu file không tải được, hãy kiểm tra quyền tải xuống của trình duyệt.');
+btn.disabled=false;
+btn.textContent='🎞️ Save as GIF';
+});
+
+gif.on('abort',()=>{
+status('Đã hủy quá trình tạo GIF.');
+btn.disabled=false;
+btn.textContent='🎞️ Save as GIF';
+});
+
+gif.render();
+}catch(e){
+console.error(e);
+status('Không tạo được GIF. Thử tải lại trang hoặc kiểm tra kết nối Internet.');
+btn.disabled=false;
+btn.textContent='🎞️ Save as GIF';
+}
+};
+
+const presets={
+pastel:['#ffe6f1','#e4e7ff','#583c72','#ff80ab','#ffd166','#83d8f8','#a8e6a3'],
+sunset:['#ffb199','#ffdfba','#713b53','#f15bb5','#fee440','#00bbf9','#00f5d4'],
+night:['#171c48','#433078','#fff5d6','#ff5d8f','#ffc93c','#4cc9f0','#b8f28b']
+};
+
+document.querySelectorAll('.preset').forEach(b=>b.onclick=()=>{
+const p=presets[b.dataset.preset];
+['bg1','bg2','ink','c1','c2','c3','c4'].forEach((id,i)=>$(id).value=p[i]);
+$('overlayColor').value=p[0];
+$('bgOpacity').value=b.dataset.preset==='night'?15:25;
+render();
+});
+
+const ids=['language','title','name','age','msg','banner','font','tSize','bgOpacity','overlayColor','bg1','bg2','ink','c1','c2','c3','c4','nBal','sBal','nCon','onBun','onCake','onAnim'];
+
+function getState(){
+const state={};
+ids.forEach(id=>{
+const el=$(id);
+state[id]=el.type==='checkbox'?el.checked:el.value;
+});
+state.backgroundData=backgroundData;
+state.stickers=stickers.map(s=>({...s}));
+state.seed=seed;
+return state;
+}
+
+function applyState(s){
+ids.forEach(id=>{
+if(s[id]===undefined)return;
+const el=$(id);
+if(el.type==='checkbox')el.checked=!!s[id];
+else el.value=s[id];
+});
+
+backgroundData=s.backgroundData||null;
+
+if(backgroundData){
+$('bgPhoto').src=backgroundData;
+$('bgPhoto').style.display='block';
+}else{
+$('bgPhoto').removeAttribute('src');
+$('bgPhoto').style.display='none';
+}
+
+seed=s.seed||7;
+stickers=[];
+selected=null;
+$('decorLayer').innerHTML='';
+
+(s.stickers||[]).forEach(item=>{
+addSticker(item);
+const obj=stickers[stickers.length-1];
+const el=document.querySelector(`[data-id="${obj.id}"]`);
+obj.left=item.left;
+obj.top=item.top;
+obj.width=item.width;
+obj.height=item.height;
+el.style.left=obj.left+'%';
+el.style.top=obj.top+'%';
+el.style.width=obj.width+'px';
+el.style.height=obj.height+'px';
+});
+
+selectSticker(null);
+render();
+}
+
+$('save').onclick=()=>{
+try{
+localStorage.setItem('sweetBirthdayStudio',JSON.stringify(getState()));
+status('Đã lưu thiết kế trên trình duyệt này.');
+}catch{
+status('Không đủ dung lượng lưu. Hãy thử ảnh nhỏ hơn.');
+}
+};
+
+$('load').onclick=()=>{
+try{
+const s=localStorage.getItem('sweetBirthdayStudio');
+if(!s)return status('Chưa có bản lưu.');
+applyState(JSON.parse(s));
+status('Đã mở bản lưu.');
+}catch{
+status('Không thể mở bản lưu.');
+}
+};
+
+$('reset').onclick=()=>{
+if(confirm('Bạn muốn đặt lại toàn bộ thiết kế?'))location.reload();
+};
+
+render();
+})();
+</script>
+</body>
+</html>
